@@ -1,0 +1,51 @@
+<template name="widgets">
+  <div class="widgetsContainer">
+    {{#each widgets}}
+      {{> widget}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="widget">
+  <div class="widget" style="width: {{ width }}px; height: {{ height }}px; left: {{ x }}px; top: {{ y }}px;">
+   {{ name }}
+   {{> Template.dynamic template=template data=data }}
+  </div>
+</template>
+
+<template name="busTrip">
+<tr>
+  <td>{{ duration }}</td>
+  <td>{{ timeDep }}</td>
+  <td>
+  {{#each steps}}
+	  <span style="background-color: {{ bgColor }}; color: {{ fgColor }}; margin: 0.1em; width: 2em; height: 2em">
+	  	{{ name }}
+	  </span>
+  {{/each}}
+  </td>
+  <td>{{ timeArr }}</td>
+</tr>
+</template>
+
+<template name="tripWatch">
+  <div class="table-responsive col-md-4">
+    <table class="table-condensed table-striped ">
+      <thead>
+        <tr>
+          <td colspan="2">{{ origin.name }}</td>
+          <td colspan="2">{{ destination.name }}</td>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each trips}}
+        {{> busTrip}}
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="stopLocationPill">
+  <span>{{ name }}</span>
+</template>

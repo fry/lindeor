@@ -1,0 +1,16 @@
+<template name="offers">
+<table class="offers">
+{{#each offers}}
+<tr>
+	<td class="provider">{{ provider }}</td>
+	<td><img src="{{ image_url }}" /></td>
+	<td class="title">{{ title }}</td>
+	<td class="info">{{ info }}</td>
+	<td class="price">
+		{{ price }}<br />
+		{{ comparison_price }}
+	</td>
+</tr>
+{{/each}}
+</table>
+</template>
